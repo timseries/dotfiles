@@ -229,6 +229,12 @@ layers configuration. You are free to put any user code."
   (global-set-key (kbd "M-;") 'isearch-forward)
   (global-set-key (kbd "C-SPC") 'set-mark-command)
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+  (add-hook 'python-mode-hook (lambda ()
+                                ;; (flycheck-mode 1)
+                                ;; (semantic-mode 1)
+                                (setq flycheck-checker 'python-pylint
+                                      flycheck-checker-error-threshold 900
+                                      flycheck-pylintrc "~/dotfiles/.pylintrc")))
   ;; (delete-selection-mode 1)
   ;;(define-key ergoemacs-keymap "\C-SPC") 'helm-for-files)
   )
