@@ -216,7 +216,7 @@ user code."
   (global-set-key (kbd "C-<SPC>") 'set-mark-command)
 
   '(ws-butler-mode t)
-  (auctext-latex-setup)
+  ;; (auctex-latex-setup)
   )
 
 (defun dotspacemacs/user-config ()
@@ -234,8 +234,11 @@ layers configuration. You are free to put any user code."
                                 ;; (semantic-mode 1)
                                 (setq flycheck-checker 'python-pylint
                                       flycheck-checker-error-threshold 900
-                                      flycheck-pylintrc "~/dotfiles/.pylintrc")))
+                                      flycheck-pylintrc "~/dotfiles/.pylintrc"))
+                                (local-set-key (kbd "C-e") 'ein:pytools-eval-string-internal)
+  )
   ;; (delete-selection-mode 1)
+  (desktop-save-mode 1)
   ;;(define-key ergoemacs-keymap "\C-SPC") 'helm-for-files)
   )
 
