@@ -18,6 +18,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     octave
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -224,6 +225,7 @@ user code."
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
   (define-key window-numbering-keymap "\M-0" nil)
+  (define-key evil-emacs-state-map (kbd "C-z") nil)
   (global-set-key (kbd "M-0") 'delete-window)
   (global-set-key (kbd "C-l") 'select-current-line)
   (global-set-key (kbd "M-;") 'isearch-forward)
