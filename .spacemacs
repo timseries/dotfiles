@@ -18,6 +18,8 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     javascript
+     csv
      octave
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -236,11 +238,13 @@ layers configuration. You are free to put any user code."
                                 ;; (semantic-mode 1)
                                 (setq flycheck-checker 'python-pylint
                                       flycheck-checker-error-threshold 900
-                                      flycheck-pylintrc "~/dotfiles/.pylintrc"))
+                                      flycheck-pylintrc "~/dotfiles/.pylintrc"
+                                      flycheck-flake8-maximum-line-length 100))
                                 (local-set-key (kbd "C-e") 'ein:pytools-eval-string-internal)
   )
   ;; (delete-selection-mode 1)
   (desktop-save-mode 1)
+  (desktop-read)
   ;;(define-key ergoemacs-keymap "\C-SPC") 'helm-for-files)
   )
 
@@ -252,6 +256,10 @@ layers configuration. You are free to put any user code."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ergoemacs-mode t)
+ '(package-selected-packages
+   (quote
+    (ergoemacs-mode deferred websocket yapfify yaml-mode winum which-key use-package toc-org spaceline restart-emacs pyvenv persp-mode orgit org-plus-contrib neotree move-text mmm-mode markdown-toc markdown-mode magit-gitflow live-py-mode link-hint js2-refactor info+ indent-guide hungry-delete highlight-indentation hide-comnt help-fns+ helm-projectile helm-make projectile helm-flx helm-company git-timemachine git-link fuzzy flycheck-pos-tip flycheck eyebrowse expand-region exec-path-from-shell evil-search-highlight-persist evil-nerd-commenter evil-mc evil-exchange dumb-jump diminish aggressive-indent adaptive-wrap ace-window ace-link avy packed anaconda-mode auctex company highlight smartparens magit magit-popup git-commit with-editor evil yasnippet helm helm-core async hydra f dash s js2-mode ws-butler window-numbering web-beautify volatile-highlights vi-tilde-fringe uuidgen undo-tree smex smeargle reveal-in-osx-finder rainbow-delimiters quelpa pytest pyenv-mode py-isort powerline pos-tip popwin pkg-info pip-requirements persistent-soft pcre2el pbcopy paradox osx-trash osx-dictionary org-bullets open-junk-file multiple-cursors macrostep lorem-ipsum livid-mode linum-relative launchctl json-mode js-doc ido-vertical-mode hy-mode hl-todo highlight-parentheses highlight-numbers helm-themes helm-swoop helm-pydoc helm-mode-manager helm-gitignore helm-descbinds helm-c-yasnippet helm-ag goto-chg google-translate golden-ratio gitconfig-mode gitattributes-mode git-messenger gh-md flx-ido fill-column-indicator fancy-battery evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-numbers evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav ein cython-mode csv-mode company-tern company-statistics company-auctex company-anaconda column-enforce-mode coffee-mode clean-aindent-mode buffer-move bracketed-paste bind-key auto-yasnippet auto-highlight-symbol auto-compile ace-jump-helm-line ac-ispell)))
+ '(python-shell-interpreter "ipython")
  '(smex-prompt-string
    #("+Opt+A " 0 4
      (face ergoemacs-display-key-face)

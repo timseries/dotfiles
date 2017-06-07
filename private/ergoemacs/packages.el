@@ -10,8 +10,8 @@
 ;;
 ;;; License: GPLv3
 
-;; List of all packages to install and/or initialize. Built-in packages
-;; which require an initialization must be listed explicitly in the list.
+;; List of all packages to install and/or initialize. Built-in packages which
+;; require an initialization must be listed explicitly in the list.
 (setq ergoemacs-packages
     '(
       buffer-move
@@ -59,7 +59,6 @@
   (setq ergoemacs-keyboard-layout "us") ;; Assumes QWERTY keyboard layout
   (global-set-key (kbd "C-SPC") 'set-mark-command)
   ;; (setq ergoemacs-use-mac-command-as-meta t)
-
   )
 
 (defun ergoemacs/pre-init-ergoemacs-mode ()
