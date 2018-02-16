@@ -18,6 +18,9 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     csv
+     windows-scripts
+     javascript
      octave
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -220,6 +223,7 @@ user code."
   ;; (auctex-latex-setup)
   )
 
+(defun nothing())
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
@@ -239,8 +243,17 @@ layers configuration. You are free to put any user code."
                                       flycheck-pylintrc "~/dotfiles/.pylintrc"))
                                 (local-set-key (kbd "C-e") 'ein:pytools-eval-string-internal)
   )
+  '(require 'helm-bookmark)
   ;; (delete-selection-mode 1)
   (desktop-save-mode 1)
+
+  ;seems to fix runaway memory consumption
+  (savehist-mode 0)
+
+  ;disabe mouse clicking within emacs
+  (define-key evil-normal-state-map (kbd "<down-mouse-1>") 'nothing)
+  (dolist (mouse '("<down-mouse-1>" "<mouse-1>"))
+    (global-unset-key (kbd mouse)))
   ;;(define-key ergoemacs-keymap "\C-SPC") 'helm-for-files)
   )
 
@@ -252,6 +265,10 @@ layers configuration. You are free to put any user code."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ergoemacs-mode t)
+ '(package-selected-packages
+   (quote
+    (csv-mode powerline org markdown-mode projectile flycheck epl magit magit-popup git-commit ghub let-alist with-editor request-deferred websocket request deferred diminish bind-key packed anaconda-mode pythonic auto-complete avy auctex yasnippet company highlight iedit smartparens f dash evil goto-chg undo-tree helm helm-core async s hydra powershell web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode persistent-soft yapfify yaml-mode ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline smex smeargle reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa pyvenv pytest pyenv-mode py-isort popwin pip-requirements persp-mode pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-plus-contrib org-bullets open-junk-file neotree move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum live-py-mode linum-relative link-hint launchctl info+ indent-guide ido-vertical-mode hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu ergoemacs-mode elisp-slime-nav ein dumb-jump cython-mode company-statistics company-auctex company-anaconda column-enforce-mode clean-aindent-mode buffer-move auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+ '(require (quote helm-bookmark))
  '(smex-prompt-string
    #("+Opt+A " 0 4
      (face ergoemacs-display-key-face)
