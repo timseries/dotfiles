@@ -17,7 +17,6 @@
 (global-set-key (kbd "S-<f2>")   'previous-multiframe-window)
 (global-set-key (kbd "S-<f1>")   'next-multiframe-window)
 
-;get the file's path
 (global-set-key (kbd "M-y")   'my-put-file-name-on-clipboard)
 
 ;buffer switching
