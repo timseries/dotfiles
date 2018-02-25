@@ -18,6 +18,8 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     html
+     javascript
      csv
      windows-scripts
      javascript
@@ -230,6 +232,8 @@ user code."
 layers configuration. You are free to put any user code."
   (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
   (push '(helm . "melpa-stable") package-pinned-packages)
+  (require 'helm-bookmark)
+  (setq python-shell-interpreter "/home/tim/venvs/venv_enc/bin/ipython")
   (define-key window-numbering-keymap "\M-0" nil)
   (define-key evil-emacs-state-map (kbd "C-z") nil)
   (global-set-key (kbd "M-0") 'delete-window)
@@ -284,6 +288,7 @@ layers configuration. You are free to put any user code."
  '(ergoemacs-mode t)
  '(package-selected-packages
    (quote
+<<<<<<< Updated upstream
     (ergoemacs-mode deferred websocket yapfify yaml-mode winum which-key use-package toc-org spaceline restart-emacs pyvenv persp-mode orgit org-plus-contrib neotree move-text mmm-mode markdown-toc markdown-mode magit-gitflow live-py-mode link-hint js2-refactor info+ indent-guide hungry-delete highlight-indentation hide-comnt help-fns+ helm-projectile helm-make projectile helm-flx helm-company git-timemachine git-link fuzzy flycheck-pos-tip flycheck eyebrowse expand-region exec-path-from-shell evil-search-highlight-persist evil-nerd-commenter evil-mc evil-exchange dumb-jump diminish aggressive-indent adaptive-wrap ace-window ace-link avy packed anaconda-mode auctex company highlight smartparens magit magit-popup git-commit with-editor evil yasnippet helm helm-core async hydra f dash s js2-mode ws-butler window-numbering web-beautify volatile-highlights vi-tilde-fringe uuidgen undo-tree smex smeargle reveal-in-osx-finder rainbow-delimiters quelpa pytest pyenv-mode py-isort powerline pos-tip popwin pkg-info pip-requirements persistent-soft pcre2el pbcopy paradox osx-trash osx-dictionary org-bullets open-junk-file multiple-cursors macrostep lorem-ipsum livid-mode linum-relative launchctl json-mode js-doc ido-vertical-mode hy-mode hl-todo highlight-parentheses highlight-numbers helm-themes helm-swoop helm-pydoc helm-mode-manager helm-gitignore helm-descbinds helm-c-yasnippet helm-ag goto-chg google-translate golden-ratio gitconfig-mode gitattributes-mode git-messenger gh-md flx-ido fill-column-indicator fancy-battery evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-numbers evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav ein cython-mode csv-mode company-tern company-statistics company-auctex company-anaconda column-enforce-mode coffee-mode clean-aindent-mode buffer-move bracketed-paste bind-key auto-yasnippet auto-highlight-symbol auto-compile ace-jump-helm-line ac-ispell)))
  '(python-shell-interpreter "ipython")
  '(evil-want-Y-yank-to-eol nil)
@@ -322,6 +327,8 @@ layers configuration. You are free to put any user code."
  '(pos-tip-foreground-color "#272822")
  '(require (quote helm-bookmark))
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
+    (web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data request-deferred dash-functional tern iedit skewer-mode simple-httpd ergoemacs-mode deferred websocket yapfify yaml-mode winum which-key use-package toc-org spaceline restart-emacs pyvenv persp-mode orgit org-plus-contrib neotree move-text mmm-mode markdown-toc markdown-mode magit-gitflow live-py-mode link-hint js2-refactor info+ indent-guide hungry-delete highlight-indentation hide-comnt help-fns+ helm-projectile helm-make projectile helm-flx helm-company git-timemachine git-link fuzzy flycheck-pos-tip flycheck eyebrowse expand-region exec-path-from-shell evil-search-highlight-persist evil-nerd-commenter evil-mc evil-exchange dumb-jump diminish aggressive-indent adaptive-wrap ace-window ace-link avy packed anaconda-mode auctex company highlight smartparens magit magit-popup git-commit with-editor evil yasnippet helm helm-core async hydra f dash s js2-mode ws-butler window-numbering web-beautify volatile-highlights vi-tilde-fringe uuidgen undo-tree smex smeargle reveal-in-osx-finder rainbow-delimiters quelpa pytest pyenv-mode py-isort powerline pos-tip popwin pkg-info pip-requirements persistent-soft pcre2el pbcopy paradox osx-trash osx-dictionary org-bullets open-junk-file multiple-cursors macrostep lorem-ipsum livid-mode linum-relative launchctl json-mode js-doc ido-vertical-mode hy-mode hl-todo highlight-parentheses highlight-numbers helm-themes helm-swoop helm-pydoc helm-mode-manager helm-gitignore helm-descbinds helm-c-yasnippet helm-ag goto-chg google-translate golden-ratio gitconfig-mode gitattributes-mode git-messenger gh-md flx-ido fill-column-indicator fancy-battery evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-numbers evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav ein cython-mode csv-mode company-tern company-statistics company-auctex company-anaconda column-enforce-mode coffee-mode clean-aindent-mode buffer-move bracketed-paste bind-key auto-yasnippet auto-highlight-symbol auto-compile ace-jump-helm-line ac-ispell)))
+ '(safe-local-variable-values (quote ((eval progn (pp-buffer) (indent-buffer)))))
  '(smex-prompt-string
    #("+Opt+A " 0 4
      (face ergoemacs-display-key-face)
