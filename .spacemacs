@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     ;; c-c++
      html
      javascript
      csv
@@ -332,7 +333,7 @@ layers configuration. You are free to put any user code."
   (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
   (push '(helm . "melpa-stable") package-pinned-packages)
   ;;(require 'helm-bookmark)
-  (setq python-shell-interpreter "/home/tim/venvs/venv_enc/bin/ipython")
+  (setq python-shell-interpreter "/home/tim/venvs/venv_brt/bin/ipython")
   ;; (define-key window-numbering-keymap "\M-0" nil)
   (define-key evil-emacs-state-map (kbd "C-z") nil)
   (global-set-key (kbd "M-0") 'delete-window)
@@ -345,9 +346,9 @@ layers configuration. You are free to put any user code."
                                 ;; (semantic-mode 1)
                                 (setq flycheck-checker 'python-flake8
                                       flycheck-checker-error-threshold 900
-                                      flycheck-pylintrc "~/dotfiles/.pylintrc"
+                                      flycheck-pylintrc "~/repos/dotfiles/.pylintrc"
                                       flycheck-flake8rc "~/.config/flake8"
-                                      flycheck-flake8-maximum-line-length 100))
+                                      flycheck-flake8-maximum-line-length 120))
                                 (local-set-key (kbd "C-e") 'ein:pytools-eval-string-internal)
   )
   ;;(require 'helm-bookmark)
@@ -359,6 +360,7 @@ layers configuration. You are free to put any user code."
   ;seems to fix runaway memory consumption
   (savehist-mode 0)
 
+  (setq TeX-parse-self t)
   ;disabe mouse clicking within emacs
   (define-key evil-normal-state-map (kbd "<down-mouse-1>") 'nothing)
   (dolist (mouse '("<down-mouse-1>" "<mouse-1>"))
@@ -395,6 +397,7 @@ layers configuration. You are free to put any user code."
  '(custom-safe-themes
    (quote
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(ein:output-area-inlined-images t)
  '(ergoemacs-mode t)
  '(evil-want-Y-yank-to-eol nil)
  '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
@@ -426,7 +429,7 @@ layers configuration. You are free to put any user code."
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (lv polymode powerline org-category-capture alert log4e gntp markdown-mode magit-popup json-snatcher json-reformat multiple-cursors hydra parent-mode haml-mode pos-tip flycheck flx highlight magit transient git-commit with-editor smartparens iedit anzu evil goto-chg skewer-mode deferred request websocket js2-mode simple-httpd projectile pkg-info epl dash-functional bind-map bind-key yasnippet packed auctex async anaconda-mode pythonic avy auto-complete popup f s dash counsel swiper ivy web-completion-data tern company helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag define-word ace-jump-helm-line yapfify yaml-mode xterm-color ws-butler winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smex smeargle slim-mode shell-pop scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode powershell popwin pip-requirements persp-mode pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc ivy-hydra indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help ergoemacs-mode emmet-mode elisp-slime-nav ein dumb-jump diminish cython-mode csv-mode counsel-projectile company-web company-tern company-statistics company-auctex company-anaconda column-enforce-mode coffee-mode clean-aindent-mode buffer-move auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
+    (disaster company-c-headers cmake-mode clang-format org-plus-contrib spinner undo-tree anaphora lv polymode powerline org-category-capture alert log4e gntp markdown-mode magit-popup json-snatcher json-reformat multiple-cursors hydra parent-mode haml-mode pos-tip flycheck flx highlight magit transient git-commit with-editor smartparens iedit anzu evil goto-chg skewer-mode deferred request websocket js2-mode simple-httpd projectile pkg-info epl dash-functional bind-map bind-key yasnippet packed auctex async anaconda-mode pythonic avy auto-complete popup f s dash counsel swiper ivy web-completion-data tern company helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag define-word ace-jump-helm-line yapfify yaml-mode xterm-color ws-butler winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smex smeargle slim-mode shell-pop scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode powershell popwin pip-requirements persp-mode pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc ivy-hydra indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help ergoemacs-mode emmet-mode elisp-slime-nav ein dumb-jump diminish cython-mode csv-mode counsel-projectile company-web company-tern company-statistics company-auctex company-anaconda column-enforce-mode coffee-mode clean-aindent-mode buffer-move auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#FFFACE")
  '(pos-tip-foreground-color "#272822")
@@ -475,3 +478,5 @@ layers configuration. You are free to put any user code."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+'(remove-hook 'python-mode-hook 'spacemacs//init-eldoc-python-mode)
