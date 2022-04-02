@@ -16,7 +16,7 @@
     '(
       buffer-move
       ;;(ergoemacs-mode :location elpa)
-      ergoemacs-mode
+      (ergoemacs-mode :location elpa)
       ein
       auctex-latexmk
       ))
@@ -31,7 +31,7 @@
   )
 
 (defun ergoemacs/init-ergoemacs-mode ()
-  (use-package ergoemacs-mode)
+  ;;(use-package ergoemacs-mode)
     ;; :init
     ;; (global-set-key (kbd "C-SPC") 'set-mark-command)
     ;; :config
