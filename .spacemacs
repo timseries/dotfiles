@@ -72,7 +72,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(ws-butler)
    ;; A list of packages that cannot be updated.
-   dotspacemacs-frozen-packages '()
+   dotspacemacs-frozen-packages '(ergoemacs)
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '()
    ;; Defines the behaviour of Spacemacs when installing packages.
@@ -345,6 +345,7 @@ user code."
   (global-set-key (kbd "M-;") 'isearch-forward)
   (global-set-key (kbd "M-Y") 'isearch-backward)
   (global-set-key (kbd "C-<SPC>") 'set-mark-command)
+  (global-set-key (kbd "M-SPC") 'set-mark-command)
   ;;(global-unset-key (kbd "C-s"))
   ;;(global-set-key (kbd "C-s") 'save-buffer)
   '(ws-butler-mode t)
@@ -403,7 +404,7 @@ layers configuration. You are free to put any user code."
   (put 'evil-ex-history 'history-length 50)
   (put 'kill-ring 'history-length 25)
   ;;default swiper kbd interferes with ergo
-
+  (remove-hook 'python-mode-hook 'spacemacs//init-eldoc-python-mode)
 )
 
 (custom-set-variables
@@ -601,7 +602,7 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  )
 
-'(remove-hook 'python-mode-hook 'spacemacs//init-eldoc-python-mode)
+
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
