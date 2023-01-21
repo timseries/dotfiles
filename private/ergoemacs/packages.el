@@ -62,6 +62,7 @@
   )
 
 (defun ergoemacs/pre-init-ergoemacs-mode ()
+  (global-set-key (kbd "C-l") 'select-current-line)
   (global-set-key (kbd "C-SPC") 'set-mark-command)
 )
 ;;
